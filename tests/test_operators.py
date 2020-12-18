@@ -27,35 +27,29 @@ def test_relu(a):
 
 
 @pytest.mark.task0_2
-def test_symmetric():
+def test_symmetric(x, y):
     """
     Write a test that ensures that :func:`minitorch.operators.mul` is symmetric, i.e.
     gives the same value regardless of the order of its input.
     """
-    None
-    # TODO: Implement for Task 0.2.
-    raise NotImplementedError('Need to implement for Task 0.2')
+    assert operators.mul(x, y) == operators.mul(y, x)    
 
 
 @pytest.mark.task0_2
-def test_distribute():
+def test_distribute(x, y, z):
     r"""
     Write a test that ensures that your operators distribute, i.e.
     :math:`z \times (x + y) = z \times x + z \times y`
     """
-    None
-    # TODO: Implement for Task 0.2.
-    raise NotImplementedError('Need to implement for Task 0.2')
+    assert operators.mul(z, x + y) == operators.mul(z, x) + operators.mul(z, y)
 
 
 @pytest.mark.task0_2
-def test_other():
+def test_other(x):
     """
     Write a test that ensures some other property holds for your functions.
     """
-    None
-    # TODO: Implement for Task 0.2.
-    raise NotImplementedError('Need to implement for Task 0.2')
+    assert operators.relu(x) == operators.relu_back(x, x)
 
 
 # HIGHER ORDER
